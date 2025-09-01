@@ -26,21 +26,31 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.module\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
+              esModule: true,
               modules: {
+                exportLocalsConvention: "camelCase", // или "asIs"
                 localIdentName: "[local]__[hash:base64:5]",
+                namedExport: false, // <--- вот это важно!
               },
-              esModule: false,
             },
           },
-          ,
-          "sass-loader",
         ],
+      },
+      {
+        test: /\.css$/i,
+        exclude: /\.module\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
+        generator: { filename: "images/[name][hash][ext]" },
       },
     ],
   },
