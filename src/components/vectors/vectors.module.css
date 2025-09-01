@@ -1,0 +1,152 @@
+.horizontal_stick {
+  background-color: rgb(66, 86, 122, 0.1);
+  height: 2px;
+  width: 1438px;
+  position: absolute;
+  top: 500px;
+  left: 0;
+  transform: translate(0, 50%);
+  z-index: 1;
+}
+
+.vertical_stick {
+  background-color: rgb(66, 86, 122, 0.1);
+  height: 1078px;
+  width: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(50%, 0);
+  z-index: 1;
+}
+
+.circle_wrapper {
+  position: absolute;
+  top: 23%;
+  left: 33%;
+  z-index: 11;
+}
+
+.centr_circle {
+  border: 2px solid rgb(66, 86, 122, 0.1);
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  z-index: 11;
+  transition: transform 1s ease-in-out;
+}
+
+.circle_item_1,
+.circle_item_2,
+.circle_item_3,
+.circle_item_4,
+.circle_item_5,
+.circle_item_6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  transition: background-color 1s ease-in-out;
+}
+
+.circle_item_1 {
+  top: 16.67%;
+  right: 11.5%;
+  transform: translate(50%, -50%);
+}
+.circle_item_2 {
+  bottom: 49.5%;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+.circle_item_3 {
+  bottom: 16.67%;
+  right: 12.5%;
+  transform: translate(50%, 50%);
+}
+.circle_item_4 {
+  bottom: 16.67%;
+  left: 12.5%;
+  transform: translate(-50%, 50%);
+}
+.circle_item_5 {
+  bottom: 49.5%;
+  left: 0;
+
+  transform: translate(-50%, 50%);
+}
+.circle_item_6 {
+  top: 16.67%;
+  left: 11.5%;
+  transform: translate(-50%, -50%);
+}
+
+.circle_dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background-color: #42567a;
+  border: 1px solid #303e58;
+  z-index: 1;
+  transition: width 1s ease-in-out, height 1s ease-in-out,
+    background-color 1s ease-in-out, border 1s ease-in-out;
+}
+
+.circle_item_active {
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.circle_item_index {
+  font-size: 2rem;
+  color: #333;
+  z-index: 2;
+}
+
+.circle_item_active .circle_dot {
+  position: absolute;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  background-color: #f4f5f9;
+  border: 1px solid #303e58;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
+    background-color 0.5s ease-in-out;
+}
+
+.circle_item_heading {
+  position: absolute;
+  font-size: 2rem;
+  top: 63px;
+  left: 485px;
+  width: 200px;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 480px) {
+  .vertical_stick {
+    display: none;
+  }
+  .horizontal_stick {
+    width: 280px;
+    top: 293px;
+    left: auto;
+  }
+  .centr_circle {
+    display: none;
+  }
+  .circle_dot {
+    display: none;
+  }
+  .circle_item_heading {
+    display: none;
+  }
+}

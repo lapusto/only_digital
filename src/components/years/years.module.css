@@ -1,0 +1,33 @@
+.years {
+  display: flex;
+  position: absolute;
+  top: 400px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  gap: 50px;
+  --years-font-size: 20rem;
+  --years-font-weigth: 700;
+  --years-line-height: 80%;
+  z-index: 10;
+}
+
+.year_to {
+  color: #5d5fef;
+  font-size: var(--years-font-size);
+  font-weight: var(--years-font-weigth);
+  line-height: var(--years-font-height);
+}
+
+.year_from {
+  color: #ef5da8;
+  font-size: var(--years-font-size);
+  font-weight: var(--years-font-weigth);
+  line-height: var(--years-font-height);
+}
+
+@media (max-width: 480px) {
+  .years {
+    --years-font-size: 5.6rem;
+    top: 163px;
+  }
+}
