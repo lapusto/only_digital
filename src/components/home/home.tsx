@@ -2,7 +2,8 @@ import { ReactElement, useState } from "react";
 import { Vectors } from "../vectors/vectors";
 import { Years } from "../years/years";
 import { angles, items } from "../../utils/consts";
-import  styles from "./Home.module.css";
+import styles from "./Home.module.css";
+import { SwiperInfo } from "../swiper-info/swiper-info";
 
 export const Home = (): ReactElement => {
   const [activeHoverIndex, setActiveHoverIndex] = useState<number | null>(null);
@@ -16,6 +17,32 @@ export const Home = (): ReactElement => {
     setActiveIndex(index);
     setRotationAngle(-angles[index]);
 
+    setTimeout(() => setIsTextVisible(true), 1000);
+  };
+
+  const handleNext = (): void => {
+    setIsTextVisible(false);
+
+    setActiveIndex((index) => {
+      if (index === null) return 0;
+      const newIndex = index < 5 ? index + 1 : 0;
+      setRotationAngle(-angles[newIndex]);
+      return newIndex;
+    });
+
+    setTimeout(() => setIsTextVisible(true), 1000);
+  };
+
+  const handlePrev = (): void => {
+    setIsTextVisible(false);
+    setTimeout(() => {
+      setActiveIndex((index) => {
+        if (index === null) return 0;
+        const newIndex = index > 0 ? index - 1 : 5;
+        setRotationAngle(-angles[newIndex]);
+        return newIndex;
+      });
+    }, 300);
     setTimeout(() => setIsTextVisible(true), 1000);
   };
 
@@ -37,6 +64,11 @@ export const Home = (): ReactElement => {
         handleClick={handleClick}
         isTextVisible={isTextVisible}
       />
+      <SwiperInfo
+        index={activeIndex}
+        onNext={handleNext}
+        onPrev={handlePrev}
+        items={items} />
     </main>
   );
 };
