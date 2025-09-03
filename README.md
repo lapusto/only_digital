@@ -1,2 +1,10 @@
-# only_digital
-test task
+# Only digital test task
+
+Чтобы развернуть проект установите зависимости:
+npm install
+
+Соберите приложение в билд:
+npm run build
+
+Запустите приложение (автоматически откроется в браузере):
+npm run dev
